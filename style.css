@@ -27,6 +27,12 @@ button {
 	transition: background-color 0.5s;
 }
 
+button:hover {
+	background: transparent;
+	color: purple;
+	cursor: pointer;
+}
+
 ul {
 	list-style: none;
 	padding-left: 0;
@@ -51,11 +57,5 @@ a {
 #del-btn:hover {
 	background-color: purple;
 	color: white;
-	cursor: pointer;
-}
-
-#input-btn:hover {
-	background: transparent;
-	color: purple;
 	cursor: pointer;
 }
