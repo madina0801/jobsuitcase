@@ -37,7 +37,7 @@ function renderJobs() {
 function delJobs() {
   localStorage.clear();
   myJobs = [];
-  listEl.innerHTML = "";
+  renderJobs();
 }
 
 btnDel.addEventListener("dblclick", delJobs);
