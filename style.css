@@ -17,13 +17,14 @@ button {
 	padding: 10px 20px;
 	margin-top: 1em;
 	background-color: purple;
-	border: none;
+	border: 3px solid purple;
 	border-radius: 5px;
 	font-family: "Poppins", sans-serif;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	color: #fff;
 	font-weight: 600;
 	text-transform: uppercase;
+	transition: background-color 0.5s;
 }
 
 ul {
@@ -42,7 +43,19 @@ a {
 	cursor: pointer;
 }
 
-.del-btn {
-	width: 1rem;
-	margin-left: 20px;
+#del-btn {
+	background: transparent;
+	color: purple;
+}
+
+#del-btn:hover {
+	background-color: purple;
+	color: white;
+	cursor: pointer;
+}
+
+#input-btn:hover {
+	background: transparent;
+	color: purple;
+	cursor: pointer;
 }
