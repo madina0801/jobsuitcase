@@ -2,9 +2,11 @@
   "manifest_version": 3,
   "version": "1.1",
   "name": "Jobsuitcase",
+		"permissions": [
+			"activeTab"
+		],
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"
-  },
-  "permissions": ["tabs"]
+  }
 }

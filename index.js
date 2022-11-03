@@ -14,16 +14,14 @@ if (jobsFromLocalStorage) {
 }
 
 // Save tab button
-btnTab.addEventListener("click", function () {
-  // Take the URL of the current tab
-  chrome.tabs.query({ active: true }, { currentWindow: true }, function (tabs) {
-    myJobs.push(tabs[0].url);
-    inputEl.value = "";
-
-    // Save jobs to local storage
-    localStorage.setItem("myJobs", JSON.stringify(myJobs));
-    render(myJobs);
-  });
+btnTab.addEventListener("click", async function getCurrentTab() {
+  let queryOptions = { active: true, lastFocusedWindow: true };
+  // `tab` will either be a `tabs.Tab` instance or `undefined`.
+  let [tab] = await chrome.tabs.query(queryOptions);
+  myJobs.push(tab.url);
+  // Save jobs to local storage
+  localStorage.setItem("myJobs", JSON.stringify(myJobs));
+  render(myJobs);
 });
 
 // Render jobs in the list
