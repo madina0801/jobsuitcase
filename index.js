@@ -8,16 +8,23 @@ let myJobs = [];
 
 let jobsFromLocalStorage = JSON.parse(localStorage.getItem("myJobs"));
 
-if(jobsFromLocalStorage) {
+if (jobsFromLocalStorage) {
   myJobs = jobsFromLocalStorage;
   render(myJobs);
 }
 
 // Save tab button
-const tabs = ['job1.com']
-btnTab.addEventListener("click", function() {
-  console.log(tabs[0]);
-})
+btnTab.addEventListener("click", function () {
+  // Take the URL of the current tab
+  chrome.tabs.query({ active: true }, { currentWindow: true }, function (tabs) {
+    myJobs.push(tabs[0].url);
+    inputEl.value = "";
+
+    // Save jobs to local storage
+    localStorage.setItem("myJobs", JSON.stringify(myJobs));
+    render(myJobs);
+  });
+});
 
 // Render jobs in the list
 function render(jobs) {
